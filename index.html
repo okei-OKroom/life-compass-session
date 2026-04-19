@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Life Compass Session | Navigate Your North Star</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Shippori+Mincho+B1:wght@400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #010c10;
@@ -25,8 +25,8 @@
   body {
     background: #051c22;  /* fallback */
     color: var(--cream);
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 400;
+    font-family: 'Noto Serif JP', 'Noto Sans JP', serif;
+    font-weight: 300;
     overflow-x: hidden;
   }
 
@@ -40,14 +40,24 @@
     align-items: center;
     padding: 1.5rem 4rem;
     background: linear-gradient(to bottom, rgba(10,22,40,0.95), transparent);
+    transition: background 0.4s, padding 0.4s, backdrop-filter 0.4s;
+  }
+
+  nav.scrolled {
+    background: rgba(5, 20, 40, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1rem 4rem;
+    border-bottom: 1px solid rgba(201,169,110,0.12);
   }
 
   .nav-logo {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 0.15em;
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
     color: var(--gold-light);
     text-decoration: none;
+    font-weight: 400;
   }
 
   .nav-links {
@@ -57,12 +67,14 @@
   }
 
   .nav-links a {
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
     color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
     transition: color 0.3s;
+    font-weight: 400;
   }
 
   .nav-links a:hover { color: var(--gold-light); }
@@ -77,7 +89,23 @@
     padding: 6rem 2rem 5rem;
     z-index: 1;
     overflow: hidden;
-    background: linear-gradient(to bottom, #0d4a5a 0%, #0e3d6a 30%, #0c3060 60%, #0e3d6a 100%);
+    background: url('bg-night-stars.png') center 30%/cover no-repeat;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+      rgba(5, 15, 35, 0.5) 0%,
+      rgba(8, 20, 55, 0.55) 50%,
+      rgba(5, 20, 45, 0.65) 100%);
+    z-index: 0;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
   }
 
   .hero-inner {
@@ -124,6 +152,8 @@
   .hero-top .hero-subtitle { animation: fadeUp 1s ease 0.4s both; }
   .hero-text .hero-sub     { animation: fadeUp 1s ease 0.8s both; }
   .hero-text .hero-cta     { animation: fadeUp 1s ease 1s both; }
+
+  .north-star {
     position: absolute;
     top: 18%;
     left: 50%;
@@ -163,7 +193,7 @@
   }
 
   .hero-eyebrow {
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Cinzel', serif;
     font-size: 0.85rem;
     letter-spacing: 0.4em;
     color: var(--gold);
@@ -173,30 +203,30 @@
   }
 
   .hero-title {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-family: 'Cinzel', 'Shippori Mincho B1', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.8rem);
     font-weight: 500;
     line-height: 1.4;
     color: var(--star);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
     margin-bottom: 0.6rem;
     animation: fadeUp 1s ease 0.4s both;
   }
 
   .hero-subtitle {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+    font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
+    font-size: clamp(0.9rem, 1.8vw, 1.15rem);
     font-weight: 400;
-    line-height: 1.9;
+    line-height: 2.0;
     color: var(--gold-light);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     margin-bottom: 0.3rem;
     animation: fadeUp 1s ease 0.6s both;
   }
 
   .hero-sub {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
     font-style: italic;
     color: var(--mist);
     letter-spacing: 0.05em;
@@ -210,7 +240,8 @@
     border: 1px solid var(--gold);
     color: var(--gold-light);
     text-decoration: none;
-    font-size: 0.8rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     transition: all 0.4s;
@@ -278,7 +309,7 @@
 
   /* ── Intro ── */
   .intro-text {
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Noto Serif JP', serif;
     font-size: clamp(1rem, 2vw, 1.25rem);
     line-height: 2.2;
     color: #ffffff;
@@ -327,7 +358,7 @@
   }
 
   .themes-title {
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
     font-size: 1.05rem;
     font-weight: 500;
     color: var(--gold-light);
@@ -431,7 +462,7 @@
   }
 
   .what-card-title {
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
     font-size: 1rem;
     color: var(--gold-light);
     margin-bottom: 0.75rem;
@@ -471,7 +502,7 @@
   }
 
   .for-item-text {
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Noto Serif JP', serif;
     font-size: 1rem;
     line-height: 1.9;
     color: #ffffff;
@@ -487,7 +518,7 @@
   }
 
   .details-heading {
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
     font-size: 1.1rem;
     color: var(--gold-light);
     margin-bottom: 2rem;
@@ -504,7 +535,8 @@
   }
 
   .details-label {
-    font-size: 0.75rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
     letter-spacing: 0.2em;
     color: var(--gold);
     text-transform: uppercase;
@@ -513,7 +545,7 @@
   }
 
   .details-value {
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Noto Serif JP', serif;
     font-size: 0.95rem;
     color: #ffffff;
     line-height: 1.8;
@@ -532,7 +564,7 @@
     background: rgba(201,169,110,0.12);
     border: 1px solid rgba(201,169,110,0.4);
     border-radius: 4px;
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Noto Serif JP', serif;
     font-size: 1rem;
     color: var(--gold-light);
     line-height: 1.8;
@@ -557,15 +589,69 @@
     vertical-align: middle;
   }
 
+  /* ── Profile ── */
+  .profile-box {
+    max-width: 640px;
+    margin: 0 auto 4rem;
+    padding: 2.5rem 3rem;
+    border: 1px solid rgba(201,169,110,0.3);
+    background: rgba(5,20,35,0.6);
+    text-align: left;
+  }
+
+  .profile-role {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .profile-name {
+    font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--gold-light);
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.1em;
+  }
+
+  .profile-text {
+    font-size: 0.9rem;
+    line-height: 2;
+    color: #ffffff;
+  }
+
+  @media (max-width: 768px) {
+    .profile-box { padding: 1.5rem 1.2rem; margin-bottom: 2.5rem; }
+    .profile-name { font-size: 1.2rem; }
+    .profile-text { font-size: 0.85rem; }
+  }
+
   /* ── CTA section ── */
   .cta-section {
     text-align: center;
     padding: 6rem 2rem;
-    background: linear-gradient(to bottom, #0a1628 0%, #1a2a4a 20%, #2a3a5a 40%, #5a3818 58%, #9a5a18 72%, #c87a20 83%, #d4950a 92%, #e0b030 100%);
+    background: url('bg-sunrise-ocean.png') center center/cover no-repeat;
+    position: relative;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+      rgba(5, 10, 30, 0.7) 0%,
+      rgba(80, 40, 5, 0.55) 100%);
+    pointer-events: none;
+  }
+
+  .cta-section > * {
+    position: relative;
+    z-index: 1;
   }
 
   .cta-section h2 {
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
     font-size: clamp(1.8rem, 4vw, 2.8rem);
     font-style: italic;
     font-weight: 400;
@@ -593,7 +679,8 @@
     background: var(--gold);
     color: var(--ink);
     text-decoration: none;
-    font-size: 0.8rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     font-weight: 500;
@@ -613,7 +700,8 @@
     border: 1px solid rgba(201,169,110,0.4);
     color: var(--gold-light);
     text-decoration: none;
-    font-size: 0.8rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     transition: border-color 0.3s, transform 0.2s;
@@ -631,11 +719,25 @@
     text-align: center;
     padding: 3rem 2rem;
     border-top: 1px solid rgba(201,169,110,0.2);
-    background: linear-gradient(to bottom, #c87a20, #d4950a);
+    background: url('bg-sunrise-ocean.png') center bottom/cover no-repeat;
+    overflow: hidden;
+  }
+
+  footer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(60, 30, 5, 0.72);
+    pointer-events: none;
+  }
+
+  footer > * {
+    position: relative;
+    z-index: 1;
   }
 
   .footer-logo {
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Cinzel', serif;
     font-size: 1.2rem;
     letter-spacing: 0.2em;
     color: var(--gold-light);
@@ -651,8 +753,9 @@
   }
 
   .footer-sns a {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
     color: var(--mist);
     text-decoration: none;
     text-transform: uppercase;
@@ -669,12 +772,13 @@
 
   /* ── Section titles ── */
   .section-title {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
     color: var(--star);
-    line-height: 1.6;
+    line-height: 1.7;
     margin-bottom: 0.5rem;
     font-weight: 400;
+    letter-spacing: 0.06em;
   }
 
   /* ── Animations ── */
@@ -686,6 +790,12 @@
   .reveal {
     opacity: 1;
     transform: translateY(0);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+  }
+
+  .reveal.hidden {
+    opacity: 0;
+    transform: translateY(28px);
   }
 
   .reveal.visible {
@@ -708,43 +818,250 @@
 
   /* ── 背景画像：上半分＝夜の海、下半分＝夜明けの海 ── */
   #about, #what, #for-whom {
-    background: linear-gradient(to bottom, #0d4a5a 0%, #0e3d6a 30%, #0c3060 60%, #0e3d6a 100%);
-  }
-  #details {
-    background: linear-gradient(to bottom, #0a1628 0%, #1a2a4a 20%, #2a3a5a 40%, #5a3818 58%, #9a5a18 72%, #c87a20 83%, #d4950a 92%, #e0b030 100%);
-  }
-  .cta-section {
-    text-align: center;
-    padding: 6rem 2rem;
-    background: linear-gradient(to bottom, #0a1628 0%, #1a2a4a 20%, #2a3a5a 40%, #5a3818 58%, #9a5a18 72%, #c87a20 83%, #d4950a 92%, #e0b030 100%);
-  }
-  footer {
+    background: url('bg-night-stars.png') center center/cover no-repeat;
     position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 3rem 2rem;
-    border-top: 1px solid rgba(201,169,110,0.2);
-    background: linear-gradient(to bottom, #c87a20, #d4950a);
   }
 
+  #about::before, #what::before, #for-whom::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+      rgba(5, 15, 40, 0.72) 0%,
+      rgba(8, 22, 60, 0.78) 100%);
+    pointer-events: none;
+  }
+
+  #about .container, #what .container, #for-whom .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  #what .nav-sheet-wrap {
+    position: relative;
+    z-index: 1;
+  }
+  #details {
+    background: url('bg-sunrise-ocean.png') center center/cover no-repeat;
+    position: relative;
+  }
+
+  #details::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+      rgba(5, 10, 30, 0.82) 0%,
+      rgba(30, 20, 10, 0.72) 60%,
+      rgba(60, 30, 5, 0.65) 100%);
+    pointer-events: none;
+  }
+
+  #details .container {
+    position: relative;
+    z-index: 1;
+  }
+  /* cta/footer backgrounds defined above */
+
   /* ── Responsive ── */
+  /* ── Hamburger ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--gold-light);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+
+  .nav-mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 5rem 2rem 2.5rem;
+    background: rgba(5, 15, 30, 0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    z-index: 99;
+    border-bottom: 1px solid rgba(201,169,110,0.15);
+    animation: fadeDown 0.3s ease both;
+  }
+
+  .nav-mobile-menu.open {
+    display: flex;
+  }
+
+  .nav-mobile-menu a {
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    color: var(--gold-light);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-mobile-menu a:hover { color: #fff; }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── What card improved ── */
+  .what-card {
+    border: 1px solid rgba(201,169,110,0.25);
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s;
+    background: rgba(5, 28, 40, 0.7);
+    overflow: hidden;
+  }
+
+  .what-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,169,110,0.05) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .what-card:hover {
+    border-color: rgba(201,169,110,0.55);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35), 0 0 20px rgba(201,169,110,0.08);
+  }
+
+  .what-card:hover::after { opacity: 1; }
+
+  /* ── btn-primary shimmer ── */
+  .btn-primary {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.5s ease;
+  }
+
+  .btn-primary:hover::after { left: 150%; }
+
+  /* ── theme-item improved hover ── */
+  .theme-item {
+    background: rgba(5, 28, 42, 0.7);
+    border: 1px solid rgba(201,169,110,0.2);
+    border-left: 3px solid var(--gold);
+    padding: 1.2rem 1.5rem;
+    transition: all 0.35s ease;
+  }
+
+  .theme-item:hover {
+    background: rgba(5, 35, 52, 0.85);
+    border-color: rgba(201,169,110,0.45);
+    border-left-color: var(--gold-light);
+    transform: translateX(4px);
+    box-shadow: -4px 0 20px rgba(201,169,110,0.08);
+  }
+
+  /* ── Section label improvement ── */
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 400;
+  }
+
+  /* ── details-box improvement ── */
+  .details-box {
+    border: 1px solid rgba(224,185,110,0.3);
+    padding: 3.5rem;
+    background: rgba(5, 20, 35, 0.72);
+    margin-top: 3rem;
+    box-shadow: inset 0 1px 0 rgba(201,169,110,0.1), 0 0 60px rgba(0,0,0,0.3);
+    position: relative;
+  }
+
+  .details-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,169,110,0.5), transparent);
+  }
+
+  /* ── for-item improved ── */
+  .for-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem 2rem;
+    border-left: 2px solid rgba(201,169,110,0.4);
+    background: rgba(5, 28, 42, 0.65);
+    transition: all 0.35s ease;
+  }
+
+  .for-item:hover {
+    border-left-color: var(--gold);
+    background: rgba(5, 35, 52, 0.8);
+    transform: translateX(4px);
+  }
+
   @media (max-width: 768px) {
     /* 背景：スマホ用に明示的に指定 */
     #about, #what, #for-whom {
-      background: linear-gradient(to bottom, #0d4a5a 0%, #0e3d6a 30%, #0c3060 60%, #0e3d6a 100%);
+      background: url('bg-night-stars.png') center center/cover no-repeat;
     }
     #details {
-      background: linear-gradient(to bottom, #0a1628 0%, #1a2a4a 20%, #2a3a5a 40%, #5a3818 58%, #9a5a18 72%, #c87a20 83%, #d4950a 92%, #e0b030 100%);
+      background: url('bg-sunrise-ocean.png') center center/cover no-repeat;
     }
     .cta-section {
-      background: linear-gradient(to bottom, #0a1628 0%, #1a2a4a 20%, #2a3a5a 40%, #5a3818 58%, #9a5a18 72%, #c87a20 83%, #d4950a 92%, #e0b030 100%);
+      background: url('bg-sunrise-ocean.png') center center/cover no-repeat;
     }
     footer {
-      background: linear-gradient(to bottom, #c87a20, #d4950a);
+      background: url('bg-sunrise-ocean.png') center bottom/cover no-repeat;
     }
     /* Nav */
     nav { padding: 1rem 1.2rem; }
+    nav.scrolled { padding: 0.8rem 1.2rem; }
     .nav-links { display: none; }
+    .hamburger { display: flex; }
     .nav-logo { font-size: 0.95rem; }
 
     /* Hero */
@@ -817,7 +1134,7 @@
 <body>
 
 <!-- Nav -->
-<nav>
+<nav id="main-nav">
   <a href="#" class="nav-logo">Life Compass Session</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -825,7 +1142,16 @@
     <li><a href="#details">Details</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-mobile-menu" id="mobile-menu">
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#for-whom" onclick="closeMobileMenu()">For You</a>
+  <a href="#details" onclick="closeMobileMenu()">Details</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+</div>
 
 <!-- Hero -->
 <section class="hero">
@@ -845,13 +1171,12 @@
       <!-- 3. 文章・ボタン -->
       <div class="hero-text">
         <p class="hero-sub">Release yourself and create your life.</p>
-        <a href="#contact" class="hero-cta">セッションを予約する</a>
       </div>
     </div>
     </section>
 <!-- Intro -->
 <section id="about">
-  <div class="container">
+  <div class="container reveal">
     <p class="section-label">Story</p>
     <h2 class="section-title">「私はどこに向かっているんだろう？」<br>そう感じているあなたへ</h2>
     <br>
@@ -873,7 +1198,7 @@
 
 <!-- What you get -->
 <section class="what-bg" id="what">
-  <div class="container">
+  <div class="container reveal">
     <p class="section-label">Session</p>
     <h2 class="section-title">⚓️ このセッションで手に入るもの</h2>
     <!-- Life Navigation Sheet 画像 -->
@@ -956,7 +1281,7 @@
 
 <!-- For whom -->
 <section id="for-whom">
-  <div class="container">
+  <div class="container reveal">
     <p class="section-label">For You</p>
     <h2 class="section-title">💎 こんな方へ届きますように</h2>
     <div class="for-list">
@@ -978,7 +1303,7 @@
 
 <!-- Details -->
 <section id="details">
-  <div class="container">
+  <div class="container reveal">
     <p class="section-label">Details</p>
     <h2 class="section-title">〜 セッション詳細と料金 〜</h2>
     <div class="details-box">
@@ -1013,6 +1338,13 @@
 
 <!-- CTA -->
 <section class="cta-section" id="contact">
+  <!-- プロフィール -->
+  <div class="profile-box">
+    <p class="profile-role">Life Compass Guide</p>
+    <h3 class="profile-name">おけい</h3>
+    <p class="profile-text">2012年から心理学を学び、豊かな人生を生きるためのプログラムを提供、講座を通じて心の仕組みを知り気持ちを共有する場とコミュニティの輪を広げている。<br>2026年よりオリジナルセッションをスタート。人の中に眠る才能や魅力を引き出し、自らの人生の舵をとり魂の目的地へと誘う新たな活動を開始。</p>
+  </div>
+
   <h2>あなたの魂の目的地へ</h2>
   <p>新しい物語が動き出す瞬間にご一緒できるのを楽しみにしています。</p>
   <div class="cta-buttons">
@@ -1025,7 +1357,7 @@
   </div>
   <br><br>
   <p style="font-size:0.8rem; color: var(--mist);">
-    メールでのお問い合わせ：<a href="/cdn-cgi/l/email-protection#ef80848a86dcdcd7af88828e8683c18c8082" style="color: var(--gold-light);"><span class="__cf_email__" data-cfemail="dcb3b7b9b5efefe49cbbb1bdb5b0f2bfb3b1">[email&#160;protected]</span></a>
+    メールでのお問い合わせ：<a href="mailto:okei338@gmail.com" style="color: var(--gold-light);">okei338@gmail.com</a>
   </p>
 </section>
 
@@ -1041,4 +1373,46 @@
   <p class="footer-copy">© 2026 Keiko Wada / OK room — Navigate Your North Star</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js
+<!-- cloudflare script removed --
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Scroll reveal
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.remove('hidden');
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => {
+  el.classList.add('hidden');
+  revealObserver.observe(el);
+});
+</script>
+</body>
+</html>
